@@ -27,6 +27,5 @@ for section in sections:
     datalist.append(dataframe)
 
 
-
 for data in datalist:
-    print(data.data)
+    print(data.data.shape)
