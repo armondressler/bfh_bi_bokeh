@@ -19,14 +19,14 @@ sections = ["demographic", "diet", "examination", "labs", "medications", "questi
 csv_path = "data/2013_2014"
 data_suffix = "csv"
 index_suffix = "idx"
-datalist = []
+nhanes_data = {key: {} for key in sections}
 
 
 for section in sections:
     dataframe = NhanesReader(path.join(csv_path, section + "." + data_suffix), ",")
     dataframe.data.set_index("SEQN")
-    datalist.append(dataframe)
+    nhanes_data[section] = (dataframe)
 
 
-for data in datalist:
+for data in nhanes_data.values():
     print(data.data.shape)
