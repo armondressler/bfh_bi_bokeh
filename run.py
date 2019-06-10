@@ -4,7 +4,8 @@ from bokeh.plotting import figure, output_file, show
 from os import path
 
 
-class nhanes_data:
+class NhanesReader:
+
     def __init__(self, csvfile, delimiter):
         self.csvfile = csvfile
         self.delimiter = delimiter
@@ -22,7 +23,7 @@ datalist = []
 
 
 for section in sections:
-    dataframe = nhanes_data(path.join(csv_path, section + "." + data_suffix), ",")
+    dataframe = NhanesReader(path.join(csv_path, section + "." + data_suffix), ",")
     dataframe.data.set_index("SEQN")
     datalist.append(dataframe)
 
