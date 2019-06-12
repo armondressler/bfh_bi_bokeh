@@ -16,7 +16,7 @@ class NhanesReader:
 
 
 csv_base_path = "data"
-csv_time_ranges = ["2013_2014"]
+csv_time_ranges = ["2013_2014","2007_2008"]
 sections = ["demographic", "diet", "examination", "labs", "medications", "questionnaire"]
 data_suffix = "csv"
 index_suffix = "idx"
