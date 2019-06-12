@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import numpy as np
 import pandas as pd
 from bokeh.plotting import figure, output_file, show
@@ -12,7 +13,10 @@ class NhanesReader:
         self.data = self._load_file()
 
     def _load_file(self):
-        return pd.read_csv(open(self.csvfile, "rb"), sep=",", index_col=1)
+        try:
+            return pd.read_csv(open(self.csvfile, "rb"), sep=",", index_col=1)
+        except FileNotFoundError:
+            return None
 
 
 csv_base_path = "data"
