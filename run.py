@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 from bokeh.plotting import figure, output_file, show
+from bokeh.models import ColumnDataSource
 from os import path
 
 
@@ -39,4 +40,10 @@ for timerange in nhanes_data.keys():
 for timerange in nhanes_data.keys():
     print("Using timerange {}".format(timerange))
     for section in nhanes_data[timerange].keys():
-        print(nhanes_data[timerange][section].data.shape)
+        print("----------\nshape: {}".format(nhanes_data[timerange][section].data.shape))
+        print("summary:\n{}".format(nhanes_data[timerange][section].data.describe()))
+
+source = ColumnDataSource(data=nhanes_data["2013_2014"]["questionnaire"].data)
+plot = figure()
+
+
