@@ -37,13 +37,13 @@ for timerange in nhanes_data.keys():
         nhanes_data[timerange][section] = dataframe
 
 
-# for timerange in nhanes_data.keys():
-#     print("Using timerange {}".format(timerange))
-#     for section in nhanes_data[timerange].keys():
-#         print("----------\nshape: {}".format(nhanes_data[timerange][section].data.shape))
-#         print("summary:\n{}".format(nhanes_data[timerange][section].data.describe()))
+for timerange in nhanes_data.keys():
+    print("Using timerange {}".format(timerange))
+    for section in nhanes_data[timerange].keys():
+        print("----------\nshape: {}".format(nhanes_data[timerange][section].data.shape))
+        print("summary:\n{}".format(nhanes_data[timerange][section].data.describe()))
 
-#source = ColumnDataSource(data=nhanes_data["2013_2014"]["questionnaire"].data)
+
 
 timerange_of_interest = "2007_2008"
 columns_of_interest = ["DPQ0"+str(count) for count in range(10,61,10)]
@@ -92,14 +92,7 @@ plot2.quad(top=hist, bottom=0, left=bins[:-1], right=bins[1:])
 
 
 
-
-
-
-
-
-
-
-bokeh_column = column(plot1,plot2, plot3)
+bokeh_column = column(plot1,plot2)
 
 show(bokeh_column)
 
